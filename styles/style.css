@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,700;0,900;1,600&display=swap");
+
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; /* set default to 10px */
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito", sans-serif;
+  /* box-sizing: border-box; */
+}
+
+body {
+  display: flex;
+  min-height: 100vh; /* This is streaching height of the window, is rule 1 */
+  flex-direction: column;
+}
+
+header {
+  background-color: #ccc;
+  font-size: 3rem;
+}
+
+footer {
+  background-color: #ccc;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  /* Rule 2: This is streaching Main, is based on rule 1 of Body */
+}
+
+article.topic {
+  background-color: #00c9f2;
+  flex: 1;
+  /* This is streaching based on Rule 2, availeable space fillup
+  assigned flex:1 to the .topic as well, grow more than the 
+  two 'asides' overriding Rule 2 */
+}
+
+aside {
+  background-color: #f5c622;
+}
+
+@media (min-width: 768px) {
+  /* will affect the pages at larger screen sizes, kick in at 768px and above */
+  main {
+    width: 80%;
+    /* So topic section doesn't get overly wide */
+    margin: 0 auto;
+    /* to center it */
+    flex-direction: row;
+  }
+
+  aside {
+    flex: 0 0 20%;
+    /* how much the aside arguements should grow and shrink, take up a fifth, or 20% of available space
+    and dont grow or shrink proportional to other elements*/
+  }
+
+  .sidebar1 {
+    order: -1;
+    /* Makes apper before the main item */
+  }
+}
